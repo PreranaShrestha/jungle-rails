@@ -39,6 +39,22 @@
             <li><%= link_to 'Categories',  [:admin, :categories] %></li>
           </ul>
         </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="text-danger"><%= fa_icon 'user', text: 'Visitor' %></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <% if current_user %>
+            Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
+          <% else %>
+            <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+          <% end %>
+          </ul>
+        </li>
+
+
         <li>
           <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
