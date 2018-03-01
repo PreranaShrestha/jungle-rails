@@ -133,4 +133,55 @@ cat3.products.create!({
 })
 
 
+
+
+##products
+prod1 = Product.find_or_create_by! name: 'Red Bookshelf'
+prod2 = Product.find_or_create_by! name: 'Electric Chair'
+prod3 = Product.find_or_create_by! name: 'Optimal Sleeping Bed'
+
+Review.destroy_all
+
+prod1.reviews.create!({
+  user_id:  1,
+  description: "Nice color",
+  rating: 4
+})
+
+
+prod1.reviews.create!({
+  user_id:  1,
+  description: "Nice design",
+  rating: 4
+})
+
+prod2.reviews.create!({
+  user_id:  1,
+  description: "Nice color",
+  rating: 4
+})
+
+prod2.reviews.create!({
+  user_id:  1,
+  description: "Easy",
+  rating: 3
+})
+
+prod3.reviews.create!({
+  user_id:  1,
+  description: "Nice color",
+  rating: 4
+})
+
+prod3.reviews.create!({
+  user_id:  1,
+  description: "Not comfortable",
+  rating: 2
+})
+
+
+
+
 puts "DONE!"
+
+
