@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to '/products'
     else
+      # raise @review.errors.full_messages.inspect
       redirect_to '/products/'+@product_id, flash: { error: @review.errors.full_messages.first }
     end
   end
