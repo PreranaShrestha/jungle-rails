@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
 
   def cart
     # value = cookies[:cart] || JSON.generate({})
-    @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
+    if cookies[:cart].present?
+      return @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
+    else
+      return redirect_to '/', notice: 'Your cart is empty.'
+    end
   end
   helper_method :cart
 

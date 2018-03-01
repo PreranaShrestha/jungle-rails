@@ -8,8 +8,6 @@ class OrderReceipt < ApplicationMailer
   #
   def send_receipt(email, order)
     @order = order
-    @total = @order.total_cents
-    mail to: email, subject: "kdjfkdjfkd"
-
+    mail to: email, subject: @order_id
   end
 end
