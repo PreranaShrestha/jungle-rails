@@ -2,7 +2,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @current_email = current_user.email
     @line_items = LineItem.where(order_id: params[:id]).includes(:product)
+     OrderReceipt.send_receipt(@current_email, @order).deliver_now
   end
 
   def create
@@ -10,6 +12,7 @@ class OrdersController < ApplicationController
     order  = create_order(charge)
 
     if order.valid?
+
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else
