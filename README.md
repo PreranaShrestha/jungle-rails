@@ -2,6 +2,13 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+##Screen Short
+![Poduct](https://github.com/PreranaShrestha/jungle-rails/blob/master/doc/Screen%20Shot%202018-03-02%20at%201.09.06%20PM.png)
+![Login](https://github.com/PreranaShrestha/jungle-rails/blob/master/doc/Screen%20Shot%202018-03-02%20at%201.09.57%20PM.png)
+![SignUp](https://github.com/PreranaShrestha/jungle-rails/blob/master/doc/Screen%20Shot%202018-03-02%20at%201.10.27%20PM.png)
+![Product Review](https://github.com/PreranaShrestha/jungle-rails/blob/master/doc/Screen%20Shot%202018-03-02%20at%201.11.16%20PM.png)
+![Empty Cart](https://github.com/PreranaShrestha/jungle-rails/blob/master/doc/Screen%20Shot%202018-03-02%20at%201.11.39%20PM.png)
+
 
 ## Setup
 
