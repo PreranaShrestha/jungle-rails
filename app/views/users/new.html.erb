@@ -1,3 +1,11 @@
+<% flash.each do |key, value| %>
+  <div class="error">
+    <% value.each do |error| %>
+      <li> <%= error %></li>
+    <% end %>
+  </div>
+<% end %>
+
 <h1>New User</h1>
 
 <%= render 'form' %>

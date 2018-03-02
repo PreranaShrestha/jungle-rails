@@ -27,6 +27,15 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>Average review</dt>
+          <dd>
+          <% for i in 1..@product.average_rating.to_i %>
+              <i class="fa fa-star" style="font-size:24px"></i>
+          <% end %>
+          <% for i in @product.average_rating.to_i..4 %>
+            <i class="fa fa-star-o" style="font-size:24px"></i>
+          <% end %>
+          </dd>
         </dl>
       </div>
     </div>
@@ -34,8 +43,9 @@
 
   </article>
 
-  <h4> Enter Reviews </h4>
+
   <% if current_user %>
+    <h4> Enter Reviews </h4>
      <div class="well">
       <div class="row">
         <div class="col-sm-6 col-sm-offset-1">
@@ -46,7 +56,7 @@
          </div>
          <div class="field">
            <%= f.label :description %><br>
-           <%= f.text_field :description %>
+           <%= f.text_field :description, class: 'form-control' %>
          </div>
          <div class="actions">
           <%= f.submit %>
@@ -57,29 +67,5 @@
     </div>
   <% end %>
 
-
-  <article>
-    <h4> Reviews </h4>
-    <table class="table table-bordered">
-      <tr >
-        <th>Rating </th>
-        <th>Description</th>
-      </tr>
-      <% @reviews.each do |review|  %>
-      <tr>
-        <td>
-        <% for i in 1..review.rating %>
-          <i class="fa fa-star" style="font-size:24px"></i>
-        <% end %>
-        <% for i in review.rating..4 %>
-          <i class="fa fa-star-o" style="font-size:24px"></i>
-        <% end %>
-
-      </td>
-        <td><%= review.description %></td>
-      </tr>
-      <% end %>
-    </table>
-  </article>
-
+  <%= render 'products_review' %>
 </section>

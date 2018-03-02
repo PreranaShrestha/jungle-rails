@@ -5,23 +5,40 @@
       <h4><%= product.name %></h4>
     <% end %>
   </header>
-  <p class="description">
-    <%= product.description %>
-  </p>
-  <footer class="actions">
-    <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
-      <%= fa_icon "shopping-cart", text: 'Add' %>
-    <% end %>
-    <%= link_to product, class: 'btn btn-default pull-right' do %>
-      Details &raquo;
-    <% end %>
-  </footer>
 
-    <% if product.quantity == 0 %>
-      <span class="sold">Sold out</span>
-    <% end %>
+  <p class="description">
+    <%= product.description %></br>
+    <span>Rating:
+      <% for i in 1..product.average_rating.to_i %>
+        <i class="fa fa-star" style="font-size:24px"></i>
+      <% end %>
+      <% for i in product.average_rating.to_i..4 %>
+        <i class="fa fa-star-o" style="font-size:24px"></i>
+      <% end %>
+    </span>
+  </p>
+
+
+  <% if product.quantity == 0 %>
+    <span class="sold">Sold out</span>
+    <footer class="actions">
+      <%= link_to product, class: 'btn btn-default pull-right' do %>
+        Details &raquo;
+      <% end %>
+    </footer>
+  <% else %>
+    <footer class="actions">
+      <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
+        <%= fa_icon "shopping-cart", text: 'Add' %>
+      <% end %>
+      <%= link_to product, class: 'btn btn-default pull-right' do %>
+        Details &raquo;
+      <% end %>
+    </footer>
+  <% end %>
 
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>
+
 </article>

@@ -1,6 +1,6 @@
 <% if cart == {} %>
-  <h2>Please Add item to the cart </h2>
-  <%= link_to 'Home', :root %>
+  <h2 class="error">Please Add item to the cart </h2>
+  <%= link_to 'Home',:root, class: 'btn btn-info' %>
 <% else %>
   <section>
     <header class="page-header">

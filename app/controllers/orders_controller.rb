@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @current_email = current_user.email
+    @current_email = @order.email
     @line_items = LineItem.where(order_id: params[:id]).includes(:product)
      OrderReceipt.send_receipt(@current_email, @order).deliver_now
   end

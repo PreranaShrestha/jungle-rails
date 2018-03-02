@@ -5,11 +5,17 @@ class ReviewsController < ApplicationController
     @review.product_id = @product_id
     @review.user_id = current_user.id
     if @review.save
-      redirect_to '/products'
+      redirect_to :back
     else
       # raise @review.errors.full_messages.inspect
-      redirect_to '/products/'+@product_id, flash: { error: @review.errors.full_messages.first }
+      redirect_to :back, flash: { error: @review.errors.full_messages.first }
     end
+  end
+
+  def destroy
+    delete_review = Review.find(params[:id]).destroy
+    flash[:success] = 'Review deleted succcesfully.'
+    redirect_to :back
   end
 
   private

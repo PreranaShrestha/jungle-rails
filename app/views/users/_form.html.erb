@@ -10,28 +10,27 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<table class="form">
+  <tr>
+    <td> <i class="fa fa-user" style="font-size:150px"></i></td>
+  </tr>
+  <tr>
+    <td><%= f.text_field :email, placeholder: "Email", class:'form-control' %></td>
+  </tr>
+  <tr>
+    <td><%= f.password_field :password, placeholder: "Password", class:'form-control' %></td>
+  </tr>
+  <tr>
+    <td><%= f.password_field :password_confirmation, placeholder: "Password confirmation", class:'form-control' %></td>
+  </tr>
+  <tr>
+    <td><%= f.text_field :first_name, placeholder: "First Name", class:'form-control' %></td>
+  </tr>
+  <tr>
+    <td><%= f.text_field :last_name, placeholder: "Last Name", class:'form-control' %></td>
+</tr>
+  <tr>
+    <td><%= f.submit %></td>
+  </tr>
+</table>
 <% end %>
