@@ -17,13 +17,13 @@
               <% end %>
             </td>
             <td><%= review.description %></td>
-            <td>
               <% if current_user %>
+                <td>
                 <% if review.user_id == current_user.id %>
                   <%= link_to fa_icon('trash'), product_review_path(@product, review), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
                 <% end %>
-              <% end %>
-            </td>
+              </td>
+             <% end %>
           </tr>
         <% end %>
       </table>

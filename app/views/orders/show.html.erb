@@ -31,13 +31,13 @@
               <dd><%= item.product.description %><dd>
             </td>
             <td>
-              <%= item.product.price/100 %>
+              <%= item.product.price %>
             </td>
             <td>
               <%= item.quantity %>
             </td>
             <td>
-              <%= item.total_price_cents %>
+              <%= item.total_price_cents/100 %>
             </td>
           </tr>
         <% end %>
