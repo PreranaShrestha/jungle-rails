@@ -29,12 +29,7 @@
           <dd><%= @product.price %></dd>
           <dt>Average review</dt>
           <dd>
-          <% for i in 1..@product.average_rating.to_i %>
-              <i class="fa fa-star" style="font-size:24px"></i>
-          <% end %>
-          <% for i in @product.average_rating.to_i..4 %>
-            <i class="fa fa-star-o" style="font-size:24px"></i>
-          <% end %>
+            <%= render 'rating', rating: @product.average_rating %>
           </dd>
         </dl>
       </div>

@@ -9,18 +9,13 @@
         <% @reviews.each do |review|  %>
           <tr>
             <td>
-              <% for i in 1..review.rating %>
-                <i class="fa fa-star" style="font-size:24px"></i>
-              <% end %>
-              <% for i in review.rating..4 %>
-                <i class="fa fa-star-o" style="font-size:24px"></i>
-              <% end %>
+              <%= render 'rating', rating: review.rating %>
             </td>
             <td><%= review.description %></td>
               <% if current_user %>
                 <td>
                 <% if review.user_id == current_user.id %>
-                  <%= link_to fa_icon('trash'), product_review_path(@product, review), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+                  <%= link_to fa_icon('trash'), review_path(review), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
                 <% end %>
               </td>
              <% end %>
