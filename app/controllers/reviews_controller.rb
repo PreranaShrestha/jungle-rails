@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     if @review.save
       redirect_to :back
+      flash[:success] = 'Review created succesfully.'
     else
       # raise @review.errors.full_messages.inspect
       redirect_to :back, flash: { error: @review.errors.full_messages.first }
