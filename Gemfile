@@ -36,8 +36,7 @@ gem 'rmagick'
 gem 'stripe'
 gem 'faker'
 
-
-# Use Capistrano for deployment
+ gem 'pg'# Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
@@ -59,5 +58,5 @@ end
 group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
-  gem 'pg'
+
 end
